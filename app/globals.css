@@ -1,0 +1,259 @@
+@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    :root {
+      --blue-1: 233, 239, 254;
+      --blue-2: 203, 216, 253;
+      --blue-3: 162, 186, 252;
+      --blue-4: 118, 154, 250;
+      --blue-5: 77, 123, 248;
+      --blue-6: 38, 94, 247;
+      --blue-7: 32, 80, 210;
+      --blue-8: 27, 67, 175;
+      --blue-9: 22, 54, 141;
+      --blue-10: 17, 42, 111;
+
+      --orange-1: 255, 246, 235;
+      --orange-2: 255, 232, 206;
+      --orange-3: 255, 214, 167;
+      --orange-4: 255, 195, 126;
+      --orange-5: 255, 177, 88;
+      --orange-6: 255, 160, 51;
+      --orange-7: 217, 136, 43;
+      --orange-8: 181, 114, 36;
+      --orange-9: 145, 91, 29;
+      --orange-10: 115, 72, 23;
+
+      --error-10: 217, 61, 66;
+      --error-11: 198, 42, 47;
+      --radius: 16px;
+
+      --white: 255, 255, 255;
+      --black: 7, 7, 7;
+
+      --divider-line: 236, 236, 240;
+    }
+
+    [data-theme="light"] {
+      --white: 255, 255, 255;
+      --gray-1: 252, 252, 253;
+      --gray-2: 249, 249, 251;
+      --gray-3: 242, 242, 245;
+      --gray-4: 235, 235, 239;
+      --gray-5: 228, 228, 233;
+      --gray-6: 221, 221, 227;
+      --gray-7: 211, 212, 219;
+      --gray-8: 185, 187, 198;
+      --gray-9: 139, 141, 152;
+      --gray-10: 126, 128, 138;
+      --gray-11: 59, 62, 68;
+      --gray-12: 28, 32, 36;
+      --gray-13: 11, 12, 13;
+
+      --background: 255, 255, 255;
+
+      --divider: 217, 217, 217;
+      --radius: 16px;
+
+      --muted: 217, 217, 217
+
+    }
+
+    [data-theme="dark"] {
+      --gray-13: 252, 252, 253;
+      --gray-12: 249, 249, 251;
+      --gray-11: 242, 242, 245;
+      --gray-10: 235, 235, 239;
+      --gray-9: 228, 228, 233;
+      --gray-8: 221, 221, 227;
+      --gray-7: 211, 212, 219;
+      --gray-6: 185, 187, 198;
+      --gray-5: 139, 141, 152;
+      --gray-4: 126, 128, 138;
+      --gray-3: 59, 62, 68;
+      --gray-2: 28, 32, 36;
+      --gray-1: 11, 12, 13;
+
+      --divider: 139, 141, 152;
+
+      --background: 28, 32, 36;
+
+      --muted: 126, 128, 138
+    }
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input {
+      -moz-appearance: textfield;
+    }
+    body {
+      @apply bg-background text-foreground font-openSans;
+    }
+    .black-window {
+      @apply fixed left-0 top-0 w-full h-full bg-black/25 pointer-events-none opacity-0 transition-opacity z-10;
+
+      &.active {
+        @apply pointer-events-auto opacity-100
+      }
+    }
+
+    .menu {
+      @apply h-full fixed top-0 right-0 bg-background pointer-events-none opacity-0 transition-opacity z-10 rounded-tl-lg rounded-bl-lg flex flex-col justify-between;
+
+      &.active {
+        @apply opacity-100 pointer-events-auto
+      }
+    }
+
+    .menu-item {
+      @apply text-center whitespace-nowrap text-gray-12 font-semibold text-lg hover:text-blue-6 transition-colors;
+
+      &.active {
+        @apply text-blue-6
+      }
+    }
+
+    .dashboard-menu-item {
+      @apply px-4 py-3  flex items-center gap-x-2 rounded-sm bg-background font-semibold text-gray-11 leading-[24px] hover:bg-blue-1 hover:text-blue-6 transition-colors;
+
+      &.active {
+        @apply bg-blue-1 text-blue-6
+      }
+    }
+
+    .dashboard-menu-item.active svg {
+      @apply stroke-blue-6
+    }
+
+    .burger-button-item {
+      @apply w-full h-[1.5px] md:h-[3px] bg-black dark:bg-white group-hover/burger:bg-blue-6 transition-colors
+    }
+
+    .burger-button-item-opened {
+      @apply w-full h-[3px] bg-black dark:bg-white rounded-full  group-hover:bg-blue-6
+    }
+    .main-section-gradient {
+      background: linear-gradient(288deg, rgba(255, 255, 255, 0.00) -24.78%, rgba(255, 255, 255, 0.00) 6.06%, rgba(2, 1, 37, 0.50) 52.35%, rgba(0, 3, 33, 0.90) 97.79%);
+    }
+
+    .tab-item {
+      @apply py-[6px] px-3 inline-flex items-center justify-center gap-x-2 rounded-sm bg-white/10
+    }
+
+    .our-client-slide-item {
+      @apply p-10 rounded-lg bg-white/[0.05]
+    }
+    .our-client-swiper-arrows {
+      @apply flex items-center justify-center w-[48px] h-[56px] bg-white/[0.05] hover:bg-white/10 rounded-[10px]
+    }
+
+    .home-footer-gradient-white {
+      background: linear-gradient(180deg, #FFF 0.94%, rgba(255, 255, 255, 0.70) 18.61%, rgba(255, 255, 255, 0.00) 32.25%, rgba(9, 4, 37, 0.50) 56.98%, #030511 90.36%);
+    }
+
+    .home-footer-gradient-black {
+      background: linear-gradient(180deg, #1E2225 3.63%, rgba(28, 32, 36, 0.70) 23.94%, rgba(28, 32, 36, 0.00) 36.68%, rgba(9, 4, 37, 0.50) 59.8%, #030511 90.99%);
+    }
+
+    .what-we-do-tabs-box-shadow {
+      box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .number-field-box-shadow {
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .benefits-banner-gradient {
+      background: linear-gradient(268deg, rgba(8, 20, 53, 0.00) -13.57%, #182A5A 101.73%);
+    }
+
+    .accordion-arrow {
+      @apply block w-1/2 h-[2px] rounded-full absolute top-1/2 -translate-y-1/2 dark:bg-gray-11 bg-gray-2
+    }
+
+    .faq-gradient {
+      background: linear-gradient(19deg, rgba(2, 12, 65, 0.25) -24.53%, rgba(4, 14, 70, 0.50) 81.18%);
+    }
+
+    .get-offer-step-circle {
+      @apply size-6 rounded-full bg-[#D9D9D9] flex items-center justify-center;
+
+      &.active {
+        @apply bg-[#1DB53F] ring-2 ring-[#1DB53F]/30
+      }
+    }
+
+    .label {
+      @apply text-xl leading-[30px] font-semibold text-gray-11 mb-2 block
+    }
+
+    .input-field {
+      @apply flex w-full rounded-lg border
+      border-gray-9 bg-background p-4
+      text-base  placeholder:text-gray-9
+      outline-none focus:ring-2
+      disabled:cursor-not-allowed disabled:opacity-50
+      transition-all text-black dark:text-white;
+    }
+
+    .popperClassName .react-datepicker__year-wrapper {
+        @apply max-w-[205px]
+      }
+
+    .popperClassName .react-datepicker__year-text {
+      @apply hover:bg-blue-7;
+
+      &.react-datepicker__year-text--selected {
+        @apply bg-blue-7;
+      }
+    }
+
+    .image-cover {
+      @apply w-full h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover
+    }
+
+    .dashboard-padding {
+      @apply px-4 py-6 xl:pl-6 xl:pt-6 xl:pr-10 xl:pb-10
+    }
+
+    .notification-tabs {
+      @apply p-3 text-base font-semibold text-gray-10 relative cursor-pointer;
+
+      &:before {
+        position: absolute;
+        top: calc(100% - 2px);
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #265EF7;
+      }
+    }
+
+    .single-page .aggrements-item {
+      @apply rounded-[8px] border cursor-pointer;
+    }
+
+    .aggrements-item {
+      @apply flex items-center gap-x-[10px] px-3 py-2 border-b border-x border-gray-6 rounded-b-[8px]
+    }
+
+    [data-radix-popper-content-wrapper] {
+      @media (max-width: 768px) {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+
+    }
+
+  }
